@@ -8,16 +8,12 @@ import routerUser from './route/userRoute.js';
 
 const app = express();
 dotenv.config();
-
 app.use(cors());
 app.use(express.json()); 
-
 app.use('/api/auth', router); 
 app.use('/api/church', routerChurch); 
 app.use('/api/user', routerUser); 
-
 const PORT = process.env.PORT || 5500;
-
 connectToDB()
   .then(() => {
     app.listen(PORT, () => {
